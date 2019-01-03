@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28010.2019
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailDesk.Core", "MailDesk.Core\MailDesk.Core.csproj", "{C04D15A6-8546-4DE0-8B9C-A032D84DEBF3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailDesk", "MailDesk\MailDesk.csproj", "{B494F4D1-E752-475D-A067-A0896585EB18}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{C04D15A6-8546-4DE0-8B9C-A032D84DEBF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C04D15A6-8546-4DE0-8B9C-A032D84DEBF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C04D15A6-8546-4DE0-8B9C-A032D84DEBF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B494F4D1-E752-475D-A067-A0896585EB18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B494F4D1-E752-475D-A067-A0896585EB18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B494F4D1-E752-475D-A067-A0896585EB18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B494F4D1-E752-475D-A067-A0896585EB18}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
