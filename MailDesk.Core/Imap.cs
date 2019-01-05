@@ -63,6 +63,8 @@ namespace MailDesk.Core
             {
                 Console.WriteLine(message.Body.Text);
             }
+
+            Console.WriteLine("kek");
         }
     }
 }

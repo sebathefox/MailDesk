@@ -15,11 +15,11 @@ namespace Debugger
     {
         static void Main(string[] args)
         {
-            Imap imap = new Imap("imap.gmail.com", 993, true);
+            Imap imap = new Imap("sebathefox.dk", 993, true);
 
             imap.Connect();
 
-            imap.Login("skrivtilsebastian99@gmail.com", "abebaudel");
+            imap.Login("test@sebathefox.dk", "Aa123456&");
             imap.OnMessageReceived += OnReceived;
             
             imap.FetchMails();                
@@ -38,6 +38,7 @@ namespace Debugger
                 Console.WriteLine("--------------------------------------------------------------");
                 Console.WriteLine(message.Body.Text);
             }
+            Console.WriteLine("Finished getting unread mails");
         }
     }
 }
