@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailDesk.Core", "MailDesk.C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailDesk", "MailDesk\MailDesk.csproj", "{B494F4D1-E752-475D-A067-A0896585EB18}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Debugger", "Debugger\Debugger.csproj", "{5C763920-EE1A-4375-9421-50A8E3DC61E6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{B494F4D1-E752-475D-A067-A0896585EB18}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B494F4D1-E752-475D-A067-A0896585EB18}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B494F4D1-E752-475D-A067-A0896585EB18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C763920-EE1A-4375-9421-50A8E3DC61E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C763920-EE1A-4375-9421-50A8E3DC61E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C763920-EE1A-4375-9421-50A8E3DC61E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C763920-EE1A-4375-9421-50A8E3DC61E6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
