@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ImapX;
+using MailDesk.Core;
 using MailDesk.Core.View;
 
 namespace MailDesk
@@ -21,13 +23,42 @@ namespace MailDesk
     /// </summary>
     public partial class MainWindow : Window
     {
+        Imap imap = new Imap("sebathefox.dk", 993, true);
+
         public MainWindow()
         {
             InitializeComponent();
 
-            Mail mail = new Mail();
+            
 
-            ListMail.Items.Add(mail);
+            imap.Connect();
+
+            imap.Login("test@sebathefox.dk", "Aa123456&");
+
+            foreach (Message message in imap.FetchMails())
+            {
+                ListMail.Items.Add(new Mail(message));
+            }
+
+            
+        }
+
+        private void GetMailsOnClick(object sender, RoutedEventArgs e)
+        {
+            ListMail.Items.Clear();
+            foreach (Message message in imap.FetchMails())
+            {
+                ListMail.Items.Add(new Mail(message));
+            }
+        }
+
+        private void MailSelected(object sender, RoutedEventArgs e)
+        {
+            Mail mail = (Mail)ListMail.SelectedItems[0];
+
+
+            SubjectLabel.Content = mail.Subject;
+            BodyBlock.Text = mail.Body;
         }
     }
 }

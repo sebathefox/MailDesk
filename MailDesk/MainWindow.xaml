@@ -7,7 +7,28 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <ListBox x:Name="ListMail" Margin="246,10,10,10"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="333*"/>
+            <RowDefinition Height="86*"/>
+        </Grid.RowDefinitions>
+        <ListBox x:Name="ListMail" Margin="246,10,10,114.214" SelectionChanged="MailSelected">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="{Binding Sender}"></Label>
+                        <Label Content="{Binding Receipent}"></Label>
+                        <Label Content="{Binding Subject}"></Label>
+                        <!--<Label Content="{Binding Body}"></Label>-->
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Button Content="Get Mails" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="GetMailsOnClick"/>
+        <Rectangle Fill="#FFF4F4F5" Margin="0,0,10,10" Stroke="Black" HorizontalAlignment="Right" Width="536" Height="185" VerticalAlignment="Bottom" Grid.RowSpan="2"/>
+        <Label x:Name="SubjectLabel" Content="" HorizontalAlignment="Right" Margin="0,0,317,79" RenderTransformOrigin="0.479,0.389" Width="229" Height="30" VerticalAlignment="Bottom"/>
+        <TextBox x:Name="BodyBlock" Margin="0,0,10,10" TextWrapping="Wrap" Text="" Grid.RowSpan="2" HorizontalAlignment="Right" Width="536" Height="150" VerticalAlignment="Bottom" VerticalScrollBarVisibility="Auto"/>
+
+
 
     </Grid>
 </Window>

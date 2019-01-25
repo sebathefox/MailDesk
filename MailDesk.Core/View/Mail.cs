@@ -1,37 +1,41 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using ImapX;
+using MailAddress = ImapX.MailAddress;
 
 namespace MailDesk.Core.View
 {
-    public class Mail : ListBoxItem
+    public class Mail
     {
-        protected Label mailTitle;
-        protected Label sender;
-
-        protected ContentControl content;
-
-        public Mail()
+        public Mail(MailAddress sender, MailAddress receipent, string subject, string body)
         {
-
-            mailTitle = new Label();
-            sender = new Label();
-            mailTitle.Content = "Mail";
-            sender.Content = "Me";
-
-            StackPanel panel = new StackPanel();
-
-            panel.Children.Add(mailTitle);
-            panel.Children.Add(sender);
-            this.Content = panel;
+            Sender = sender;
+            Receipent = receipent;
+            Subject = subject;
+            Body = body;
         }
 
-        public void AddContent(object content)
+        public Mail(Message message)
         {
-            //this.Content
+            Sender = message.From;
+            Receipent = message.To.First();
+            Subject = message.Subject;
+            Body = message.Body.Text;
         }
+
+        public MailAddress Sender { get; set; }
+
+        public MailAddress Receipent { get; set; }
+
+        public string Subject { get; set; }
+
+        public string Body { get; set; }
+
+
     }
 }

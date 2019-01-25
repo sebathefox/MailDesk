@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Authentication;
 using System.Text;
 using System.Threading.Tasks;
 using ImapX;
+using ImapX.Authentication;
 using ImapX.Collections;
 
 namespace MailDesk.Core
@@ -22,12 +24,15 @@ namespace MailDesk.Core
 
         public bool Connect()
         {
+            client.SslProtocol = SslProtocols.Tls12;
+            Console.WriteLine("Connecting");
             return client.Connect();
         }
 
         public bool Login(string username, string password)
         {
-            return client.Login(username, password);
+            
+            return client.Login(new PlainCredentials(username, password));
         }
 
         public FolderCollection GetFolders()
@@ -37,6 +42,7 @@ namespace MailDesk.Core
 
         public Folder GetFolder(string name)
         {
+            Console.WriteLine("Is Connected: " + client.IsConnected + "; Is Authenticated: " + client.IsAuthenticated);
             return client.Folders[name];
         }
 
@@ -57,14 +63,15 @@ namespace MailDesk.Core
             }
         }
 
-        public void FetchMails()
+        public Message[] FetchMails()
         {
-            foreach (Message message in GetFolder("INBOX").Search("UNSEEN"))
+            /*foreach (Message message in GetFolder("INBOX").Search("ALL"))
             {
                 Console.WriteLine(message.Body.Text);
             }
+            Console.WriteLine("kek");*/
 
-            Console.WriteLine("kek");
+            return GetFolder("INBOX").Search("ALL");
         }
     }
 }
