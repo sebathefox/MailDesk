@@ -23,24 +23,12 @@ namespace MailDesk
     /// </summary>
     public partial class MainWindow : Window
     {
-        Imap imap = new Imap("sebathefox.dk", 993, true);
+        private Imap imap;
 
         public MainWindow()
         {
             InitializeComponent();
-
-            
-
-            imap.Connect();
-
-            imap.Login("test@sebathefox.dk", "Aa123456&");
-
-            foreach (Message message in imap.FetchMails())
-            {
-                ListMail.Items.Add(new Mail(message));
-            }
-
-            
+            //imap.Connect();
         }
 
         private void GetMailsOnClick(object sender, RoutedEventArgs e)
@@ -59,6 +47,18 @@ namespace MailDesk
 
             SubjectLabel.Content = mail.Subject;
             BodyBlock.Text = mail.Body;
+        }
+
+        private void OnLogin(object sender, RoutedEventArgs e)
+        {
+            imap = new Imap(Server.Text, Int32.Parse(Port.Text), true);
+            imap.Connect();
+            imap.Login(Email.Text, Password.Password);
+
+            foreach (Message message in imap.FetchMails())
+            {
+                ListMail.Items.Add(new Mail(message));
+            }
         }
     }
 }

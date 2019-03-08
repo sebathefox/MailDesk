@@ -16,9 +16,9 @@ namespace MailDesk.Core
 
         public event EventHandler<IdleEventArgs> OnMessageReceived;
 
-        public Imap(string host, int port, bool ssl)
+        public Imap(string host, int port, bool ssl = true)
         {
-            client = new ImapClient(host, port, ssl);
+            client = new ImapClient(host, port, ssl, true);
             client.OnNewMessagesArrived += (sender, args) => { OnMessageReceived?.Invoke(sender, args);};
         }
 
@@ -31,7 +31,7 @@ namespace MailDesk.Core
 
         public bool Login(string username, string password)
         {
-            
+
             return client.Login(new PlainCredentials(username, password));
         }
 
@@ -42,7 +42,7 @@ namespace MailDesk.Core
 
         public Folder GetFolder(string name)
         {
-            Console.WriteLine("Is Connected: " + client.IsConnected + "; Is Authenticated: " + client.IsAuthenticated);
+            
             return client.Folders[name];
         }
 
@@ -63,15 +63,14 @@ namespace MailDesk.Core
             }
         }
 
-        public Message[] FetchMails()
+        public IEnumerable<Message> FetchMails()
         {
-            /*foreach (Message message in GetFolder("INBOX").Search("ALL"))
+            Console.WriteLine("Is Connected: " + client.IsConnected + "; Is Authenticated: " + client.IsAuthenticated);
+            foreach (Message message in client.Folders.Inbox.Search("SEEN"))
             {
-                Console.WriteLine(message.Body.Text);
+                yield return message;
             }
-            Console.WriteLine("kek");*/
-
-            return GetFolder("INBOX").Search("ALL");
+            
         }
     }
 }

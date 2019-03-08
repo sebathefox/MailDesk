@@ -22,10 +22,18 @@ namespace MailDesk.Core.View
 
         public Mail(Message message)
         {
-            Sender = message.From;
-            Receipent = message.To.First();
-            Subject = message.Subject;
-            Body = message.Body.Text;
+            try
+            {
+
+                Sender = message.From;
+                Receipent = message.To.First();
+                Subject = message.Subject;
+                Body = message.Body.Text;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
         }
 
         public MailAddress Sender { get; set; }

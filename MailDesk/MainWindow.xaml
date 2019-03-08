@@ -11,7 +11,7 @@
             <RowDefinition Height="333*"/>
             <RowDefinition Height="86*"/>
         </Grid.RowDefinitions>
-        <ListBox x:Name="ListMail" Margin="246,10,10,114.214" SelectionChanged="MailSelected">
+        <ListBox x:Name="ListMail" Margin="246,10,10,0" SelectionChanged="MailSelected" Height="209" VerticalAlignment="Top">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
@@ -24,9 +24,14 @@
             </ListBox.ItemTemplate>
         </ListBox>
         <Button Content="Get Mails" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="GetMailsOnClick"/>
-        <Rectangle Fill="#FFF4F4F5" Margin="0,0,10,10" Stroke="Black" HorizontalAlignment="Right" Width="536" Height="185" VerticalAlignment="Bottom" Grid.RowSpan="2"/>
+        <Rectangle Fill="Bisque" Margin="246,224,10,10" Stroke="Black" Grid.RowSpan="2"/>
         <Label x:Name="SubjectLabel" Content="" HorizontalAlignment="Right" Margin="0,0,317,79" RenderTransformOrigin="0.479,0.389" Width="229" Height="30" VerticalAlignment="Bottom"/>
-        <TextBox x:Name="BodyBlock" Margin="0,0,10,10" TextWrapping="Wrap" Text="" Grid.RowSpan="2" HorizontalAlignment="Right" Width="536" Height="150" VerticalAlignment="Bottom" VerticalScrollBarVisibility="Auto"/>
+        <TextBox x:Name="BodyBlock" IsReadOnly="True" Margin="246,259,10,10" TextWrapping="Wrap" Text="" Grid.RowSpan="2" VerticalScrollBarVisibility="Auto"/>
+        <TextBox x:Name="Email"  HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Grid.Row="1"/>
+        <PasswordBox x:Name="Password" PasswordChar="*" HorizontalAlignment="Left" Height="23" Margin="10,38,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120"/>
+        <Button Content="LogIn" HorizontalAlignment="Left" Margin="135,41,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75" Click="OnLogin"/>
+        <TextBox x:Name="Server" HorizontalAlignment="Left" Height="23" Margin="10,0,0,81" TextWrapping="Wrap" Text="ConnectionString" VerticalAlignment="Bottom" Width="120" Grid.RowSpan="2"/>
+        <TextBox x:Name="Port" HorizontalAlignment="Left" Height="23" Margin="135,315,0,0" Grid.RowSpan="2" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="75"/>
 
 
 
