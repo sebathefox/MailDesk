@@ -2,11 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
-using ImapX;
-using ImapX.Collections;
-using ImapX.Enums;
 using MailDesk.Core;
 
 namespace Debugger
@@ -15,30 +13,23 @@ namespace Debugger
     {
         static void Main(string[] args)
         {
-            Imap imap = new Imap("sebathefox.dk", 993, true);
+            Socket imapClient = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
 
-            imap.Connect();
+            imapClient.Connect("sebathefox.dk", 143);
 
-            imap.Login("test@sebathefox.dk", "Aa123456&");
-            imap.OnMessageReceived += OnReceived;
-            
-            imap.FetchMails();                
-            while (true)
-            {
-            }
+
+
+            byte[] cmd = Encoding.ASCII.GetBytes("LOGIN sebastian@sebathefox.dk [PASSWORD]");
+
+            imapClient.Send(cmd);
+
+            byte[] buff = new byte[1024];
+
+            int bytesReceived = imapClient.Receive(buff);
+
+            Console.WriteLine(Encoding.ASCII.GetString(buff));
 
             Console.ReadLine();
-        }
-
-        public static void OnReceived(object sender, IdleEventArgs args)
-        {
-            foreach (Message message in args.Messages)
-            {
-                Console.WriteLine("Subject: " + message.Subject);
-                Console.WriteLine("--------------------------------------------------------------");
-                Console.WriteLine(message.Body.Text);
-            }
-            Console.WriteLine("Finished getting unread mails");
         }
     }
 }

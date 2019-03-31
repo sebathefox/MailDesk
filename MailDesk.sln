@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailDesk", "MailDesk\MailDe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Debugger", "Debugger\Debugger.csproj", "{5C763920-EE1A-4375-9421-50A8E3DC61E6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImapS", "ImapS\ImapS.csproj", "{88019439-C826-491B-ADF4-EE411E87F093}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{5C763920-EE1A-4375-9421-50A8E3DC61E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5C763920-EE1A-4375-9421-50A8E3DC61E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5C763920-EE1A-4375-9421-50A8E3DC61E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88019439-C826-491B-ADF4-EE411E87F093}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88019439-C826-491B-ADF4-EE411E87F093}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88019439-C826-491B-ADF4-EE411E87F093}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88019439-C826-491B-ADF4-EE411E87F093}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
